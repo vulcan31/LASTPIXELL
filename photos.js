@@ -99,7 +99,7 @@ window.PORTFOLIO_PHOTOS = {
       layout: "wide"
     },
     {
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1100&q=85",
+      image: "images/old-man-portrait.jpg",
       title: "A portrait in afternoon light",
       caption: "A portrait in afternoon light",
       category: "people",
@@ -113,10 +113,10 @@ window.PORTFOLIO_PHOTOS = {
       iso: "",
       alt: "Reference portrait of a woman in soft natural light; replace with your own photograph",
       description: "A reference portrait in soft, unhurried light. Replace this sample with one of your own portraits before publishing.",
-      credit: "Unsplash reference image — replace before publishing"
+      credit: "Vinayak Singh judev"
     },
     {
-      image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1100&q=85",
+      image: "images/PXL_20250314_031438191.jpg",
       title: "Salt air",
       caption: "Salt air",
       category: "places",
@@ -129,7 +129,7 @@ window.PORTFOLIO_PHOTOS = {
       iso: "",
       alt: "A soft line of waves along the shore",
       description: "The tide leaves a fine bright line, then quietly takes it back.",
-      credit: "Unsplash reference image",
+      credit: "Vinayak Singh judev",
       layout: "offset"
     }
   ]
