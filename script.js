@@ -1,5 +1,29 @@
 const photoCatalog = window.PORTFOLIO_PHOTOS || { featured: {}, gallery: [] };
 
+const themeToggle = document.querySelector("[data-theme-toggle]");
+const themeToggleLabel = document.querySelector("[data-theme-label]");
+const themeToggleIcon = document.querySelector("[data-theme-icon]");
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme, persist = false) {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeToggle?.setAttribute("aria-pressed", String(isDark));
+  themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+  if (themeToggleLabel) themeToggleLabel.textContent = isDark ? "Light" : "Dark";
+  if (themeToggleIcon) themeToggleIcon.textContent = isDark ? "☼" : "◐";
+  themeColorMeta?.setAttribute("content", isDark ? "#171a18" : "#f2ede3");
+
+  if (persist) {
+    try { localStorage.setItem("lastpixell-theme", isDark ? "dark" : "light"); } catch (_) {}
+  }
+}
+
+applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+themeToggle?.addEventListener("click", () => {
+  applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+});
+
 function setText(selector, value) {
   const element = document.querySelector(selector);
   if (element && value) element.textContent = value;
@@ -130,8 +154,37 @@ const lightboxCaptureStatus = document.querySelector(".lightbox-capture-status")
 const lightboxCredit = document.querySelector(".lightbox-credit");
 const lightboxCounter = document.querySelector(".lightbox-counter");
 const closeButton = document.querySelector(".lightbox-close");
+const lightboxLike = document.querySelector(".lightbox-like");
+const lightboxLikeLabel = document.querySelector(".lightbox-like-label");
+const volatileLikes = new Set();
 let currentPhoto = 0;
 let previousFocus;
+
+function getLikeKey(photo) {
+  try {
+    return `lastpixell-liked:${new URL(photo.src, window.location.href).pathname}`;
+  } catch (_) {
+    return `lastpixell-liked:${photo.src}`;
+  }
+}
+
+function isPhotoLiked(photo) {
+  const key = getLikeKey(photo);
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved !== null) return saved === "1";
+  } catch (_) {}
+  return volatileLikes.has(key);
+}
+
+function updateLikeButton(photo) {
+  if (!lightboxLike || !photo) return;
+  const liked = isPhotoLiked(photo);
+  lightboxLike.setAttribute("aria-pressed", String(liked));
+  lightboxLike.setAttribute("aria-label", `${liked ? "Unlike" : "Like"} ${photo.title}`);
+  lightboxLike.title = `${liked ? "Unlike" : "Like"} this photograph`;
+  if (lightboxLikeLabel) lightboxLikeLabel.textContent = liked ? "Liked" : "Like";
+}
 
 photoTriggers.forEach((trigger, index) => {
   const number = trigger.querySelector("[data-photo-number]");
@@ -185,6 +238,7 @@ function showPhoto(index) {
   const hasExposureData = [photo.lens, photo.focalLength, photo.aperture, photo.shutterSpeed, photo.iso].some(Boolean);
   lightboxCaptureStatus.textContent = hasExposureData ? "EXPOSURE NOTES" : "EXIF NOT RECORDED";
   lightboxCounter.textContent = `${String(currentPhoto + 1).padStart(2, "0")} / ${String(photographs.length).padStart(2, "0")}`;
+  updateLikeButton(photo);
 }
 
 photoTriggers.forEach((button, index) => {
@@ -197,6 +251,19 @@ photoTriggers.forEach((button, index) => {
 });
 
 closeButton.addEventListener("click", () => lightbox.close());
+lightboxLike?.addEventListener("click", () => {
+  const photo = photographs[currentPhoto];
+  if (!photo) return;
+  const key = getLikeKey(photo);
+  const liked = !isPhotoLiked(photo);
+  if (liked) volatileLikes.add(key);
+  else volatileLikes.delete(key);
+  try {
+    if (liked) localStorage.setItem(key, "1");
+    else localStorage.removeItem(key);
+  } catch (_) {}
+  updateLikeButton(photo);
+});
 document.querySelector(".lightbox-prev").addEventListener("click", () => showPhoto(currentPhoto - 1));
 document.querySelector(".lightbox-next").addEventListener("click", () => showPhoto(currentPhoto + 1));
 lightbox.addEventListener("click", (event) => {
