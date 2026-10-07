@@ -478,3 +478,87 @@ img { max-width: 100%; }
   .image-button:hover::before, .image-button:focus-visible::before, .featured-photo:hover::before, .featured-photo:focus-visible::before { clip-path: inset(0); }
   .featured-photo:hover::after, .featured-photo:focus-visible::after { opacity: 0; transform: none; }
 }
+
+/* Small-screen refinements: keep the desktop composition untouched. */
+@media (max-width: 700px) {
+  html { scroll-padding-top: 96px; }
+  .site-header { min-height: 96px; gap: 5px; padding-top: 7px; padding-bottom: 6px; }
+  .main-nav { gap: clamp(13px, 4vw, 22px); font-size: 10px; }
+  .main-nav .nav-contact { padding: 7px 9px; }
+
+  .opening { min-height: 485px; padding-top: 32px; padding-bottom: 16px; }
+  .opening::before { --hero-art-opacity: .19; top: 142px; right: 4%; width: 60%; height: 205px; opacity: var(--hero-art-opacity); }
+  .opening-grid { gap: 23px; padding: 54px 0 36px; }
+  .opening h1 { max-width: 100%; font-size: clamp(62px, 12vw, 84px); text-shadow: 0 1px 15px var(--paper); }
+  .opening-aside { width: min(100%, 390px); margin-left: 0; }
+  .opening-aside p { font-size: 13px; line-height: 1.8; }
+  .opening-bottomline { gap: 10px; padding-top: 11px; font-size: 7.5px; }
+
+  .featured-section { padding-top: 20px; padding-bottom: 42px; }
+  .section-topline { flex-wrap: wrap; row-gap: 4px; }
+  .featured-layout { gap: 14px; }
+  .featured-caption { padding-top: 16px; }
+  .featured-foot { row-gap: 8px; font-size: 7.5px; }
+
+  .archive-section { padding-top: 42px; padding-bottom: 78px; }
+  .archive-heading { gap: 15px; }
+  .archive-heading h2 { font-size: clamp(58px, 13vw, 82px); line-height: .87; }
+  .archive-heading > p { font-size: 12px; line-height: 1.75; }
+  .archive-controls { align-items: center; flex-direction: row; gap: 10px; margin-top: 27px; margin-bottom: 19px; padding-bottom: 10px; }
+  .filters { gap: clamp(10px, 3vw, 17px); }
+  .filters button { font-size: 8px; }
+  .archive-sort { flex: 0 0 auto; font-size: 6.5px; white-space: nowrap; }
+  .gallery { gap: 30px 13px; }
+  .gallery-item.gallery-offset { margin-top: 18px; }
+  .gallery-item figcaption { gap: 5px; padding-top: 9px; }
+  .gallery-item figcaption > span:first-child { font-size: 11px; line-height: 1.4; }
+  .gallery-item figcaption > span:last-child { font-size: 7px; }
+
+  .art-interlude { gap: 38px; padding-top: 56px; padding-bottom: 62px; }
+  .art-copy h2 { font-size: clamp(54px, 12vw, 82px); }
+  .art-copy p { margin-top: 19px; font-size: 12px; line-height: 1.8; }
+  .artwork-plate { width: min(100%, 360px); }
+
+  .approach-section { padding-top: 45px; padding-bottom: 58px; }
+  .quote-layout { gap: 25px; margin-top: 38px; }
+  .quote-context p { font-size: 12px; }
+  .approach-note { margin-top: 42px; }
+
+  .contact-grid { gap: 22px; margin-top: 46px; }
+  .contact-bottom { margin-top: 48px; }
+  .contact-bottom, .site-footer { gap: 10px; font-size: 6.5px; }
+  .site-footer { min-height: 54px; flex-wrap: wrap; line-height: 1.5; }
+}
+
+@media (max-width: 430px) {
+  .opening { min-height: 475px; }
+  .opening::before { top: 145px; right: 2%; width: 63%; height: 190px; }
+  .opening h1 { font-size: clamp(60px, 12.8vw, 74px); }
+  .archive-controls { gap: 7px; }
+  .filters { gap: 11px; }
+  .filters button { font-size: 7.5px; }
+  .archive-sort { font-size: 6px; letter-spacing: .06em; }
+  .gallery { gap: 29px; }
+  .gallery-item.gallery-offset { margin-top: 0; }
+  .gallery-item .image-button { aspect-ratio: 4 / 4.45; }
+  .gallery-item figcaption { flex-direction: row; align-items: baseline; gap: 8px; }
+  .gallery-item figcaption > span:first-child { font-size: 10.5px; }
+  .gallery-item figcaption > span:last-child { font-size: 6.5px; }
+  .contact-grid { margin-top: 40px; }
+  .contact-bottom, .site-footer { font-size: 6px; }
+  .lightbox { padding: 48px 10px 34px; }
+  .lightbox[open] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .lightbox-frame { gap: 12px; }
+  .lightbox-prev, .lightbox-next { position: fixed; top: 42%; z-index: 4; padding: 12px 8px; border: 1px solid rgba(242,237,227,.3); background: rgba(14,17,16,.56); font-size: 17px; }
+  .lightbox-prev { left: 5px; }
+  .lightbox-next { right: 5px; }
+  .lightbox-image { max-height: 39vh; }
+  .lightbox-close { top: 5px; right: 10px; }
+  .lightbox-counter { right: 12px; bottom: 8px; }
+}
+
+@media (max-width: 360px) {
+  .archive-controls { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .filters { gap: 14px; }
+  .gallery-item figcaption { flex-direction: column; align-items: flex-start; }
+}
