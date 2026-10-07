@@ -303,7 +303,7 @@ img { max-width: 100%; }
 .site-footer { display: flex; min-height: 66px; align-items: center; justify-content: space-between; gap: 18px; color: var(--soft-ink); font-size: 7px; }
 .site-footer a { color: var(--rust); font-size: 15px; }
 
-.lightbox { position: fixed; inset: 0; overflow: auto; overscroll-behavior: contain; width: 100%; max-width: none; height: 100%; max-height: none; padding: clamp(44px,5vw,70px) clamp(36px,8vw,120px); border: 0; background: var(--viewer-bg); color: var(--viewer-paper); }
+.lightbox { position: fixed; inset: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; width: 100%; max-width: none; height: 100%; max-height: none; padding: clamp(44px,5vw,70px) clamp(36px,8vw,120px); border: 0; background: var(--viewer-bg); color: var(--viewer-paper); }
 .lightbox::backdrop { background: var(--viewer-backdrop); backdrop-filter: blur(9px); }
 .lightbox-reflection { position: absolute; z-index: 0; inset: -4%; overflow: hidden; opacity: .62; pointer-events: none; }
 .lightbox-reflection img { display: block; width: 100%; height: 100%; object-fit: cover; filter: blur(28px) saturate(.85) brightness(.45); transform: scaleX(-1) scale(1.1); }
