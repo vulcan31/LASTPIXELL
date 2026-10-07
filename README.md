@@ -45,6 +45,8 @@ Use `architecture`, `people`, or `places` for `category`. Optional `layout` valu
 
 Either keep the same filename and replace the file inside `images/`, or add the new file there and update that photo's `image` path in `photos.js`. Paths and filenames are case-sensitive on GitHub Pages, so match upper and lower case exactly. Use a web-sized copy (for example, JPEG or WebP) to keep pages quick to load. Before publishing, check that the photo is yours to share and remove embedded GPS information if you don't want to reveal where it was made.
 
+Three gallery entries are still Unsplash reference images: **A passage in gold**, **A portrait in afternoon light**, and **Salt air**. Replace their `image` paths and descriptions in `photos.js` with your own photographs before presenting those frames as your work.
+
 ### Change the featured photograph
 
 Edit the `featured` object at the top of `photos.js`. Change `image`, `alt`, `location`, `description`, and the headline and label fields to suit the new frame. Its camera settings are also shown in the full-screen viewer. The featured frame is counted alongside the gallery photographs.
