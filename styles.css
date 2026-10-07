@@ -549,7 +549,7 @@ img { max-width: 100%; }
   .lightbox { padding: 48px 10px 34px; }
   .lightbox[open] { grid-template-columns: minmax(0, 1fr); gap: 8px; }
   .lightbox-frame { gap: 12px; }
-  .lightbox-prev, .lightbox-next { position: fixed; top: 42%; z-index: 4; padding: 12px 8px; border: 1px solid rgba(242,237,227,.3); background: rgba(14,17,16,.56); font-size: 17px; }
+  .lightbox-prev, .lightbox-next { position: fixed; top: clamp(130px, 25vh, 240px); z-index: 4; padding: 12px 8px; border: 1px solid rgba(242,237,227,.3); background: rgba(14,17,16,.56); font-size: 17px; }
   .lightbox-prev { left: 5px; }
   .lightbox-next { right: 5px; }
   .lightbox-image { max-height: 39vh; }
