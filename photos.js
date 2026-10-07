@@ -50,7 +50,7 @@ window.PORTFOLIO_PHOTOS = {
       credit: "Vinayak Singh Judev"
     },
     {
-      image: "images/old-man-portrait.jpg",
+      image: "images/PXL_20260605_125810450.jpeg",
       title: "A passage in gold",
       caption: "A passage in gold",
       category: "people",
