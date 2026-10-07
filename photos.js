@@ -99,38 +99,38 @@ window.PORTFOLIO_PHOTOS = {
       layout: "wide"
     },
     {
-      image: "images/old-man-portrait.jpg",
+      image: "images/DSC00838 (1)~2.jpg",
       title: "A portrait in afternoon light",
       caption: "A portrait in afternoon light",
       category: "people",
       categoryLabel: "PEOPLE · REFERENCE",
-      location: "Location not listed",
+      location: "Vidisha",
       camera: "Not recorded",
       lens: "",
       focalLength: "",
       aperture: "",
       shutterSpeed: "",
       iso: "",
-      alt: "Reference portrait of a woman in soft natural light; replace with your own photograph",
-      description: "A reference portrait in soft, unhurried light. Replace this sample with one of your own portraits before publishing.",
+      alt: "Reference portrait of a men in soft natural light; replace with your own photograph",
+      description: "A reference portrait in soft, unhurried light.",
       credit: "Vinayak Singh judev"
     },
     {
       image: "images/PXL_20250314_031438191.jpg",
-      title: "Salt air",
-      caption: "Salt air",
+      title: "Holi morning",
+      caption: "Holi morning at sangla holi festival",
       category: "places",
-      location: "Location not listed",
-      camera: "Not recorded",
+      location: "Sangla",
+      camera: "Pixel 7A",
       lens: "",
       focalLength: "",
       aperture: "",
       shutterSpeed: "",
       iso: "",
-      alt: "A soft line of waves along the shore",
-      description: "The tide leaves a fine bright line, then quietly takes it back.",
-      credit: "Vinayak Singh judev",
-      layout: "offset"
+      alt: "A soft morning Snow",
+      description: "The snow leaves a fine bright line, then quietly takes it back.",
+      credit: "Vinayak Singh judev"
+      
     }
   ]
 };
