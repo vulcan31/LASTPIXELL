@@ -63,8 +63,7 @@ window.PORTFOLIO_PHOTOS = {
       iso: "200",
       alt: "Ornate carved arches repeating along an Indian architectural passage",
       description: "A old tree with a lot of wisdom.",
-      credit: "Unsplash reference image",
-      layout: "offset"
+      credit: "Vinayak Singh judev"
     },
     {
       image: "images/DSC01467.JPG",
