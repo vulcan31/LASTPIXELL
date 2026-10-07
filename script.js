@@ -1,3 +1,97 @@
+const photoCatalog = window.PORTFOLIO_PHOTOS || { featured: {}, gallery: [] };
+
+function setText(selector, value) {
+  const element = document.querySelector(selector);
+  if (element && value) element.textContent = value;
+}
+
+function setPhotoMetadata(figure, photo) {
+  figure.dataset.photo = "";
+  figure.dataset.title = photo.title || "Untitled frame";
+  figure.dataset.location = photo.location || "Location not listed";
+  figure.dataset.camera = photo.camera || "Not recorded";
+  figure.dataset.lens = photo.lens || "";
+  figure.dataset.focalLength = photo.focalLength || "";
+  figure.dataset.aperture = photo.aperture || "";
+  figure.dataset.shutterSpeed = photo.shutterSpeed || "";
+  figure.dataset.iso = photo.iso || "";
+  figure.dataset.description = photo.description || "A photograph from the field archive.";
+  figure.dataset.credit = photo.credit || "";
+}
+
+function fillFeaturedPhoto(photo) {
+  const figure = document.querySelector("[data-featured-photo]");
+  if (!figure || !photo) return;
+  setPhotoMetadata(figure, photo);
+
+  const image = figure.querySelector("[data-featured-image]");
+  const trigger = figure.querySelector("[data-featured-trigger]");
+  if (image && photo.image) image.src = photo.image;
+  if (image && photo.alt) image.alt = photo.alt;
+  if (trigger && photo.title) trigger.setAttribute("aria-label", `Open photograph: ${photo.title}`);
+
+  setText("[data-featured-collection-label]", photo.collectionLabel);
+  setText("[data-featured-kicker]", photo.kicker);
+  setText("[data-featured-headline]", photo.headline);
+  setText("[data-featured-headline-accent]", photo.headlineAccent);
+  setText("[data-featured-image-label]", photo.imageLabel);
+  setText("[data-featured-location]", (photo.location || "Location not listed").toUpperCase());
+  setText("[data-featured-description]", photo.description);
+  setText("[data-featured-credit]", photo.credit?.toUpperCase());
+  setText("[data-featured-note]", photo.note);
+}
+
+function createGalleryItem(photo) {
+  const figure = document.createElement("figure");
+  figure.className = "gallery-item";
+  if (photo.layout === "wide" || photo.layout === "offset") figure.classList.add(`gallery-${photo.layout}`);
+  if (photo.category) figure.dataset.category = photo.category;
+  setPhotoMetadata(figure, photo);
+
+  const button = document.createElement("button");
+  button.className = "photo-trigger image-button";
+  button.type = "button";
+  button.setAttribute("data-lightbox", "");
+  button.setAttribute("aria-label", `Open photograph: ${photo.title || "Untitled frame"}`);
+
+  const image = document.createElement("img");
+  image.src = photo.image || "";
+  image.alt = photo.alt || photo.title || "Photograph";
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  const openLabel = document.createElement("span");
+  openLabel.className = "image-open";
+  openLabel.setAttribute("aria-hidden", "true");
+  openLabel.textContent = "OPEN FULL VIEW ↗";
+
+  const locationLabel = document.createElement("span");
+  locationLabel.className = "image-location";
+  const locationEyebrow = document.createElement("span");
+  locationEyebrow.textContent = "PHOTOGRAPHED IN";
+  const locationValue = document.createElement("b");
+  locationValue.textContent = (photo.location || "Location not listed").toUpperCase();
+  locationLabel.append(locationEyebrow, locationValue);
+  button.append(image, openLabel, locationLabel);
+
+  const caption = document.createElement("figcaption");
+  const captionTitle = document.createElement("span");
+  captionTitle.textContent = photo.caption || photo.title || "Untitled frame";
+  const captionMeta = document.createElement("span");
+  const frameNumber = document.createElement("span");
+  frameNumber.dataset.photoNumber = "";
+  captionMeta.append(frameNumber, document.createTextNode(` / ${photo.categoryLabel || photo.category || "PHOTOGRAPH"}`.toUpperCase()));
+  caption.append(captionTitle, captionMeta);
+  figure.append(button, caption);
+  return figure;
+}
+
+fillFeaturedPhoto(photoCatalog.featured);
+const galleryRoot = document.querySelector("#gallery");
+if (galleryRoot) {
+  galleryRoot.replaceChildren(...(Array.isArray(photoCatalog.gallery) ? photoCatalog.gallery : []).map(createGalleryItem));
+}
+
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
 const galleryItems = [...document.querySelectorAll(".gallery-item")];
 const photoTriggers = [...document.querySelectorAll("[data-lightbox]")];

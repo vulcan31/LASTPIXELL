@@ -1,109 +1,77 @@
 # LASTPIXELL — Photography portfolio
 
-A responsive, text-led photography portfolio for Vinayak Singh Judev. It pairs a warm paper palette with restrained vermilion details, Devanagari lettering, framed image borders, a jharokha-inspired profile card, and subtle motion. The site is plain HTML, CSS, and JavaScript: no build step, packages, or paid hosting are required.
+A responsive portfolio for Vinayak Singh Judev, built with plain HTML, CSS, and JavaScript. It is designed for GitHub Pages and needs no build step or paid hosting.
 
-## Publish on GitHub Pages
+## Publish with GitHub Pages
 
-1. Download and extract the ZIP, then place the **contents** directly in the root of your GitHub repository. `index.html` should sit beside `styles.css`, `script.js`, `README.md`, and the `images` folder.
-2. Commit and push the files to the repository's `main` branch.
-3. In GitHub, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
-4. The included `.github/workflows/deploy.yml` publishes the site after each push to `main`. The live address appears under **Settings → Pages** after the first successful deployment.
+1. Keep the site files in the root of the repository: `index.html`, `styles.css`, `script.js`, `photos.js`, and the `images/` folder.
+2. Commit and push your changes to the repository's `main` branch.
+3. In GitHub, open **Settings → Pages** and choose the deployment source configured for the repository. If the included workflow is present, choose **GitHub Actions**.
+4. GitHub Pages will publish the site after the workflow completes. The live address appears in **Settings → Pages**.
 
-There is no custom domain to configure. Keep the site files in the repository root so the included workflow can publish them as-is.
+## Add a photograph
 
-## Replace the photographs
+All featured and gallery photo details live in **`photos.js`**. You no longer need to edit the gallery HTML to add a frame.
 
-The site uses relative image paths, so keep your photographs in the `images` folder beside `index.html`. To replace a current image, the easiest method is to use your own file but keep the exact existing filename. For example, replace `images/PXL_20250315_010025447.jpg` with your new landscape and it will appear in the featured section without editing the page.
+1. Add your photo file to the repository's `images/` folder. Use a short filename such as `first-light.jpg`.
+2. Open `photos.js` and copy one photo object inside the `gallery` list.
+3. Change its `image`, `title`, `caption`, `category`, `location`, `alt`, and `description` values. Fill in the camera fields only when you know them.
+4. Save and commit. The gallery, category counts, frame numbers, hover location, and full-screen viewer update automatically.
 
-The included photographs are:
+Example entry (include a comma after the object when another entry follows it):
 
-| File | Where it appears |
-| --- | --- |
-| `images/PXL_20250315_010025447.jpg` | Featured latest collection image |
-| `images/PXL_20241130_110319598.jpg` | Gallery: temple and steps |
-| `images/DSC01467.JPG` | Gallery: carved stone detail |
-| `images/PXL_20240306_091550010.jpg` | Gallery: riverfront |
-| `images/portrait-placeholder.svg` | Profile portrait illustration; replace when ready |
-
-Three remaining gallery photographs are credited as Unsplash reference images in the image viewer. Replace their `src` paths with your own photographs before treating those frames as your work. Search within `index.html` for `images.unsplash.com` to find them.
-
-If you want to change a filename, add the new file under `images/` and update that image's `src` in `index.html`. Use simple filenames without spaces, such as `winter-ridge.jpg` or `temple-detail.webp`. GitHub Pages paths are case-sensitive, so use the exact same uppercase and lowercase letters in the filename and HTML.
-
-The photographs inside the download are portfolio-sized copies (up to 2400 px on the long edge) with embedded metadata removed, including precise GPS coordinates. Your original photographs remain untouched in the working folder. For new images, export a web-sized copy and remove GPS metadata before adding it to a public repository. Camera details shown in the viewer are entered in the page markup below.
-
-### Keep each photograph's details in sync
-
-Each image's parent `<figure data-photo>` in `index.html` stores the text shown in its viewer:
-
-- `data-title`: short image title
-- `data-location`: place shown on hover and in the viewer; use `Location not listed` if you prefer not to name it
-- `data-description`: a brief note about the image
-- `data-credit`: photographer or source
-- `data-camera`, `data-lens`, `data-focal-length`, `data-aperture`, `data-shutter-speed`, and `data-iso`: camera and exposure notes
-
-The current sample photos do not have camera information recorded, so those fields are left blank or say `Not recorded`. Add only settings you know. Examples: `data-aperture="f/2.8"`, `data-shutter-speed="1/250 s"`, and `data-iso="ISO 400"`.
-
-Write useful alt text on the `<img>` itself. Describe the visible subject and light in a short sentence; this is read by screen readers and is shown if an image cannot load.
-
-### Add another photograph to the gallery
-
-Copy this block and paste it inside `<div class="gallery" id="gallery">` in `index.html`. Change the filename, text, and camera fields to match your image:
-
-```html
-<figure class="gallery-item"
-        data-photo
-        data-category="architecture"
-        data-title="First light"
-        data-location="Your location"
-        data-camera="Camera body, if known"
-        data-lens="35 mm f/1.4"
-        data-focal-length="35 mm"
-        data-aperture="f/1.4"
-        data-shutter-speed="1/500 s"
-        data-iso="ISO 100"
-        data-description="A short note about the photograph."
-        data-credit="Vinayak Singh Judev">
-  <button class="photo-trigger image-button" type="button" data-lightbox
-          aria-label="Open photograph: First light">
-    <img src="images/first-light.jpg"
-         alt="Describe the subject and light in this photograph"
-         loading="lazy" decoding="async" />
-    <span class="image-open" aria-hidden="true">↗</span>
-    <span class="image-location"><span>PHOTOGRAPHED IN</span><b>YOUR LOCATION</b></span>
-  </button>
-  <figcaption><span>First light</span><span><span data-photo-number></span> / ARCHITECTURE</span></figcaption>
-</figure>
+```js
+{
+  image: "images/first-light.jpg",
+  title: "First light",
+  caption: "The courtyard at first light",
+  category: "architecture",
+  location: "Your location",
+  camera: "Camera body",
+  lens: "35 mm f/1.4",
+  focalLength: "35 mm",
+  aperture: "f/1.4",
+  shutterSpeed: "1/500 s",
+  iso: "ISO 100",
+  alt: "Warm light falls across a quiet stone courtyard",
+  description: "A short note about the place, the light, or the moment.",
+  credit: "Vinayak Singh Judev"
+}
 ```
 
-Use `architecture`, `people`, or `places` for `data-category`. The category filters, counts, frame numbers, hover locations, image viewer, and previous/next controls update from the page markup automatically. Add `gallery-wide` to the figure for a wider image.
+Use `architecture`, `people`, or `places` for `category`. Optional `layout` values are `wide` and `offset`; leave the field out for the standard frame. Use `categoryLabel` only when you want a custom label beside the image caption. For unknown camera details, leave the value as an empty string or set it to `"Not recorded"`—don't guess.
+
+### Replace a current gallery image
+
+Either keep the same filename and replace the file inside `images/`, or add the new file there and update that photo's `image` path in `photos.js`. Paths and filenames are case-sensitive on GitHub Pages, so match upper and lower case exactly. Use a web-sized copy (for example, JPEG or WebP) to keep pages quick to load. Before publishing, check that the photo is yours to share and remove embedded GPS information if you don't want to reveal where it was made.
 
 ### Change the featured photograph
 
-In `index.html`, find `<figure class="featured-plate"` inside `<section id="archive">`. Replace the `<img src>` path and edit the `data-*` fields, alt text, heading, and caption to describe your new featured frame. The **Explore the collection** link below the image already points to the gallery.
+Edit the `featured` object at the top of `photos.js`. Change `image`, `alt`, `location`, `description`, and the headline and label fields to suit the new frame. Its camera settings are also shown in the full-screen viewer. The featured frame is counted alongside the gallery photographs.
 
-### Replace the portrait placeholder
+### Replace the profile portrait
 
-Put your portrait in `images/`, then update the image path in the profile card in `index.html`:
+Add your portrait to `images/`, then update the image `src` in the profile card in `index.html`. The arched frame is created by the site's styles and stays in place. Update its `alt` text to describe the portrait.
 
-```html
-<img src="images/your-portrait.jpg" alt="Vinayak Singh Judev, photographer" />
-```
+## Photo fields
 
-Keep a portrait crop with the subject near the centre; the jharokha arch and glass frame are created in CSS and will stay in place.
-
-## Artwork, fonts, and contact link
-
-- The hero backdrop is Raja Ravi Varma's *Shakuntala*, loaded from Wikimedia Commons and credited beside the introduction. The painting is identified as public domain on its Commons file page: [Raja Ravi Varma — Shakuntala](https://commons.wikimedia.org/wiki/File:Raja_Ravi_Varma_-_Mahabharata_-_Shakuntala.jpg).
-- The painted interlude uses an Indian miniature from The Metropolitan Museum of Art and links to its collection record.
-- Web fonts load from Google Fonts. The site still renders with fallback fonts if an external font service is unavailable.
-- The profile name and contact link currently point to `https://www.instagram.com/lastpixell/`. Change those links in the profile card if you prefer another contact address.
+- `image`: path to the image in `images/` (or a complete public image URL)
+- `title` and `caption`: title in the full-screen viewer and the short gallery caption
+- `category`: `architecture`, `people`, or `places`
+- `location`: shown on image hover and in the viewer; use `Location not listed` if preferred
+- `alt`: a short, useful description for screen readers
+- `description`: the note shown beside the full-size image
+- `credit`: photographer or image source
+- `camera`, `lens`, `focalLength`, `aperture`, `shutterSpeed`, `iso`: capture details shown in the viewer
+- `layout`: optional gallery arrangement: `wide` or `offset`
 
 ## Useful files
 
-- `index.html` — portfolio content, image entries, copy, credits, and metadata
+- `photos.js` — featured photo and gallery catalog; edit this to add or update photos
+- `images/` — photographs and portrait image
+- `index.html` — page structure, profile portrait, and text outside the photo catalog
 - `styles.css` — colors, layout, borders, responsive styling, and animation
-- `script.js` — gallery filters, image viewer, photo counts, and scroll effects
-- `images/` — photographs and portrait illustration
-- `.github/workflows/deploy.yml` — GitHub Pages deployment workflow
+- `script.js` — gallery rendering, filters, full-screen viewer, and motion
+- `.github/workflows/deploy.yml` — GitHub Pages deployment workflow, if enabled in the repository
 
-To change the colors or motion, edit the CSS variables at the top of `styles.css`. Animations respect the visitor's reduced-motion setting.
+The portfolio uses a warm paper palette with restrained vermilion details, Devanagari lettering, framed photographs, and subtle motion. Animations respect the visitor's reduced-motion setting.

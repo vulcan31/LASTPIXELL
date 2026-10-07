@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+Devanagari:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="photos.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -62,22 +63,22 @@
       </section>
 
       <section class="featured-section page-gutter" id="archive" aria-labelledby="featured-title">
-        <div class="section-topline"><span class="section-index">01 <i>—</i> LATEST COLLECTION / MARCH 2025</span><span class="section-topline-right">SELECTED WORK &nbsp; / &nbsp; <span data-archive-count>07</span> FRAMES</span></div>
+        <div class="section-topline"><span class="section-index">01 <i>—</i> <span data-featured-collection-label>LATEST COLLECTION / MARCH 2025</span></span><span class="section-topline-right">SELECTED WORK &nbsp; / &nbsp; <span data-archive-count>07</span> FRAMES</span></div>
         <div class="featured-layout">
-          <figure class="featured-plate" data-photo data-title="Trimbak" data-location="Trimbakeshwar" data-camera="Sony ZV E10 M2" data-lens="18-55" data-focal-length="50mm" data-aperture="5.6" data-shutter-speed="1/100" data-iso="2000" data-description="." data-credit="Vinayak Singh Judev">
-            <button class="photo-trigger featured-photo" type="button" data-lightbox aria-label="Open photograph: Where the mountain keeps its silence">
-              <img src="images/DSC01614 (1).jpg" alt="Snow covered mountains fade into mist above a dark stand of pines" loading="eager" fetchpriority="high" decoding="async" />
+          <figure class="featured-plate" data-photo data-featured-photo>
+            <button class="photo-trigger featured-photo" type="button" data-lightbox data-featured-trigger aria-label="Open featured photograph">
+              <img data-featured-image src="images/DSC01614 (1).jpg" alt="Snow covered mountains fade into mist above a dark stand of pines" loading="eager" fetchpriority="high" decoding="async" />
               <span class="featured-image-wash" aria-hidden="true"></span>
-              <span class="image-location"><span>PHOTOGRAPHED IN</span><b data-location-value>INDIA</b></span>
-              <span class="image-caption-on-photo"><span>ZERO / BLACK / WHITE</span><span>PLATE <b data-photo-number>01</b></span></span>
+              <span class="image-location"><span>PHOTOGRAPHED IN</span><b data-featured-location>TRIMBAKESHWAR</b></span>
+              <span class="image-caption-on-photo"><span data-featured-image-label>ZERO / BLACK / WHITE</span><span>PLATE <b data-photo-number>01</b></span></span>
               <span class="postmark" aria-hidden="true">
                 <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="42"/><circle cx="50" cy="50" r="35"/><path d="M50 25c4 7 4 12 0 18-4-6-4-11 0-18Zm0 50c-4-7-4-12 0-18 4 6 4 11 0 18Zm25-25c-7 4-12 4-18 0 6-4 11-4 18 0Zm-50 0c7-4 12-4 18 0-6 4-11 4-18 0Z"/><circle cx="50" cy="50" r="3"/><path d="M7 43h30M63 43h30M5 50h31M64 50h31M7 57h30M63 57h30"/></svg>
                 <span lang="hi">दृष्टि<br />भारत · ०१</span>
               </span>
             </button>
             <figcaption class="featured-caption">
-              <div><span class="eyebrow">LATEST FIELD FRAME / ०१</span><h2 id="featured-title">Where the mountain<br /><em>keeps its silence.</em></h2></div>
-              <div class="featured-caption-note"><p>Snow, cloud, and pine hold their distance. The longer you look, the quieter the valley becomes.</p><span class="caption-credit">A PHOTOGRAPH BY VINAYAK SINGH JUDEV</span></div>
+              <div><span class="eyebrow" data-featured-kicker>LATEST FIELD FRAME / ०१</span><h2 id="featured-title"><span data-featured-headline>Where the mountain</span><br /><em data-featured-headline-accent>keeps its silence.</em></h2></div>
+              <div class="featured-caption-note"><p data-featured-description>Snow, cloud, and pine hold their distance. The longer you look, the quieter the valley becomes.</p><span class="caption-credit">A PHOTOGRAPH BY <span data-featured-credit>VINAYAK SINGH JUDEV</span></span></div>
             </figcaption>
           </figure>
           <aside class="collector-stamp" aria-label="An ornamental field-note mark">
@@ -90,7 +91,7 @@
             </div>
           </aside>
         </div>
-        <div class="featured-foot"><span>FIELD NOTES · MOUNTAIN / MIST / MORNING</span><a href="#gallery">EXPLORE THE COLLECTION <b aria-hidden="true">↘</b></a></div>
+        <div class="featured-foot"><span data-featured-note>FIELD NOTES · MOUNTAIN / MIST / MORNING</span><a href="#gallery">EXPLORE THE COLLECTION <b aria-hidden="true">↘</b></a></div>
       </section>
 
       <section class="archive-section page-gutter" aria-labelledby="archive-title">
@@ -107,32 +108,7 @@
           </div>
           <span class="archive-sort">IN FRAME ORDER &nbsp; ↘</span>
         </div>
-        <div class="gallery" id="gallery">
-          <figure class="gallery-item" data-photo data-category="architecture" data-title="Maheshwar and Eshwar" data-location="Maheshwar" data-camera="pixel 7A" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="A carved stone temple built by Mata Ahilyadevi rises above a busy flight of steps. The broad facade holds its quiet geometry amid the movement below." data-credit="Vinayak Singh Judev">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open photograph: Maheshwar and Eshwar"><img src="images/PXL_20241130_110319598.jpg" alt="Carved stone temple and stepped forecourt with visitors in the foreground" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>MAHESHWAR</b></span></button>
-            <figcaption><span>The temple above the steps</span><span><span data-photo-number></span> / ARCHITECTURE</span></figcaption>
-          </figure>
-          <figure class="gallery-item gallery-offset" data-photo data-category="architecture" data-title="A passage in gold" data-location="Location not listed" data-camera="Not recorded" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="A sequence of scalloped arches holds a small study in symmetry, craft, and the movement of daylight." data-credit="Unsplash reference image">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open photograph: A passage in gold"><img src="https://images.unsplash.com/photo-1741839839275-8c037785fc6c?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Ornate carved arches repeating along an Indian architectural passage" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>INDIA</b></span></button>
-            <figcaption><span>A passage in gold</span><span><span data-photo-number></span> / ARCHITECTURE</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-photo data-category="architecture" data-title="Faces at Vijay Mandir" data-location="Vidisha" data-camera="Sony H300" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="A weathered band of carved figures emerges from shadow, softened by the bright leaves in the foreground." data-credit="Vinayak Singh Judev">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open photograph: Faces at Vijay Mandir"><img src="images/DSC01467.JPG" alt="Weathered sculpted figures in a stone relief behind soft green leaves" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>VIDISHA</b></span></button>
-            <figcaption><span>Faces in the old stone</span><span><span data-photo-number></span> / ARCHITECTURE</span></figcaption>
-          </figure>
-          <figure class="gallery-item gallery-wide" data-photo data-category="places" data-title="Manikarnika" data-location="Kashi" data-camera="pixel 7A" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="Smoke drifts above the river steps as the morning gathers around the water and the people at its edge." data-credit="Vinayak Singh Judev">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open photograph: At the Ganga edge"><img src="images/PXL_20240306_091550010.jpg" alt="A hazy riverfront with steps, people, and smoke of Moksha rising against the morning sky" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>KASHI</b></span></button>
-            <figcaption><span>At the river's edge</span><span><span data-photo-number></span> / PLACES</span></figcaption>
-          </figure>
-          <figure class="gallery-item" data-photo data-category="people" data-title="A portrait in afternoon light" data-location="Location not listed" data-camera="Not recorded" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="A reference portrait in soft, unhurried light. Replace this sample with one of your own portraits before publishing." data-credit="Unsplash reference image — replace before publishing">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open reference portrait in afternoon light"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Reference portrait of a woman in soft natural light; replace with your own photograph" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>LOCATION NOT LISTED</b></span></button>
-            <figcaption><span>A portrait in afternoon light</span><span><span data-photo-number></span> / PEOPLE · REFERENCE</span></figcaption>
-          </figure>
-          <figure class="gallery-item gallery-offset" data-photo data-category="places" data-title="Salt air" data-location="Location not listed" data-camera="Not recorded" data-lens="" data-focal-length="" data-aperture="" data-shutter-speed="" data-iso="" data-description="The tide leaves a fine bright line, then quietly takes it back." data-credit="Unsplash reference image">
-            <button class="photo-trigger image-button" type="button" data-lightbox aria-label="Open photograph: Salt air"><img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="A soft line of waves along the shore" loading="lazy" decoding="async" /><span class="image-open" aria-hidden="true">OPEN FULL VIEW ↗</span><span class="image-location"><span>PHOTOGRAPHED IN</span><b>LOCATION NOT LISTED</b></span></button>
-            <figcaption><span>Salt air</span><span><span data-photo-number></span> / PLACES</span></figcaption>
-          </figure>
-        </div>
+        <div class="gallery" id="gallery" aria-label="Photograph collection"></div>
       </section>
 
       <section class="art-interlude page-gutter" aria-labelledby="art-title">
