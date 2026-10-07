@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" fill="none">
+  <defs>
+    <pattern id="jaali" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 15h30M15 0v30" stroke="#a94735" stroke-opacity=".14" stroke-width="1"/>
+      <circle cx="15" cy="15" r="4" stroke="#a94735" stroke-opacity=".16"/>
+    </pattern>
+    <linearGradient id="paper" x1="110" y1="70" x2="790" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f2ede3"/>
+      <stop offset="1" stop-color="#e8dfd0"/>
+    </linearGradient>
+    <clipPath id="arch">
+      <path d="M140 570V290a310 310 0 0 1 620 0v280H140Z"/>
+    </clipPath>
+  </defs>
+  <path fill="#e8dfd0" d="M0 0h900v620H0z"/>
+  <path fill="url(#paper)" d="M140 570V290a310 310 0 0 1 620 0v280H140Z"/>
+  <g clip-path="url(#arch)">
+    <path fill="url(#jaali)" d="M140 70h620v500H140z"/>
+    <circle cx="665" cy="176" r="60" fill="#d49a82" fill-opacity=".65"/>
+    <path d="M140 485c95-54 174-44 260 3 93 50 189 39 360-24v106H140V485Z" fill="#293c35" fill-opacity=".12"/>
+    <path d="M306 570c17-113 61-170 144-170s127 57 144 170H306Z" fill="#293c35"/>
+    <path d="M374 404c-2-43 20-73 76-73s78 30 76 73c-1 26-25 51-76 51s-75-25-76-51Z" fill="#d49a82"/>
+    <path d="M367 400c-9-57 21-91 83-91 60 0 88 39 78 94-15-20-31-31-48-35-31 22-68 33-113 32Z" fill="#26251f"/>
+    <path d="M392 483c17 15 36 22 58 22s41-7 58-22" stroke="#f2ede3" stroke-opacity=".68" stroke-width="2"/>
+    <path d="M140 290a310 310 0 0 1 620 0" stroke="#a94735" stroke-opacity=".25" stroke-width="2"/>
+  </g>
+  <path d="M116 570V290a334 334 0 0 1 668 0v280M132 570V290a318 318 0 0 1 636 0v280" stroke="#a94735" stroke-opacity=".64" stroke-width="2"/>
+  <path d="M92 570h716M115 548h670" stroke="#a94735" stroke-opacity=".25"/>
+</svg>
